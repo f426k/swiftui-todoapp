@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Task: Identifiable {
+struct Task: Identifiable, Equatable {
     let id = UUID()
     var title:String
     var checked: Bool
