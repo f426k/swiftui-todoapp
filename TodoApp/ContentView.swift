@@ -7,15 +7,23 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+    var userData = UserData()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView{
+            List {
+                ForEach(userData.tasks) { task in
+                    ListRow(task: task.title, isCheck: task.checked)
+                }
+                Text("＋")
+                    .font(.title)
+            }
+            .navigationBarTitle(Text("Tasks"))
+            .navigationBarItems(trailing: Text("Delete"))
         }
-        .padding()
+
     }
 }
 
